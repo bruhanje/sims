@@ -81,7 +81,7 @@ async def delete_course(request):
 
     with db_block() as db:
         db.execute("""
-        DELETE FROM student WHERE sn=%(cou_sn)s;
+        DELETE FROM course WHERE sn=%(cou_sn)s;
         """, dict(cou_sn=cou_sn))
 
     return web.Response(text="", content_type="text/plain")
