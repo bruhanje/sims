@@ -30,6 +30,12 @@
                     <li {% if location.pathname.startswith("/grade") %}active{% endif %}>
                         <a href="/grade">成绩单</a>
                     </li>
+                    <li {% if location.pathname.startswith("/choose") %}active{% endif %}>
+                        <a href="/choose">选课</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/grade") %}active{% endif %}>
+                        <a href="/grade">课程成绩表</a>
+                    </li>
                 </ul>
             </div>
             <div class="page-content">

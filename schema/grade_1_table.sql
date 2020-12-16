@@ -40,6 +40,14 @@ CREATE TABLE IF NOT EXISTS course_grade  (
     PRIMARY KEY(stu_sn, cou_sn)
 );
 
+DROP TABLE IF EXISTS student_course;
+CREATE TABLE IF NOT EXISTS student_course (
+    stu_sn INTEGER,     -- 学生序号
+    cou_sn INTEGER,     -- 课程序号 
+    time   TEXT,        -- 课程时间
+    PRIMARY KEY(stu_sn, cou_sn)
+);
+
 ALTER TABLE course_grade 
     ADD CONSTRAINT stu_sn_fk FOREIGN KEY (stu_sn) REFERENCES student(sn);
 ALTER TABLE course_grade 
@@ -50,3 +58,8 @@ ALTER TABLE course
 
 ALTER TABLE course
     ADD time TEXT; --时间
+
+ALTER TABLE student_course 
+    ADD CONSTRAINT stu_sn_fb FOREIGN KEY (stu_sn) REFERENCES student(sn);
+ALTER TABLE student_course 
+    ADD CONSTRAINT cou_sn_fb FOREIGN KEY (cou_sn) REFERENCES course(sn);

@@ -13,6 +13,9 @@ import serv.grade_actions
 import serv.course_views
 import serv.course_rest
 
+import serv.choose_action
+import serv.choose_views
+
 app = web.Application()
 app.add_routes(web_routes)
 app.add_routes([web.static("/", home_path / "static")])

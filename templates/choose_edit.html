@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+<!--  -->
+{% block styles %} {% endblock %}
+
+<!--  -->
+{% block page_content %}
+<div class="paper">
+    <form action="/action/choose/edit/{{stu_sn}}/{{cou_sn}}" method="post">
+        时间：<input type="text" name="grade" value="{{time}}" />
+        <input type="submit" value="修改" />
+    </form>
+    <hr />
+    <a href="/choose"> 回到选课列表 </a>
+</div>
+{% endblock %}
