@@ -33,8 +33,11 @@
                     <li {% if location.pathname.startswith("/choose") %}active{% endif %}>
                         <a href="/choose">选课</a>
                     </li>
-                    <li {% if location.pathname.startswith("/grade") %}active{% endif %}>
-                        <a href="/grade">课程成绩表</a>
+                    <li {% if location.pathname.startswith("/cougra") %}active{% endif %}>
+                        <a href="/cougra">课程成绩表</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/stugra") %}active{% endif %}>
+                        <a href="/stugra">学生成绩表</a>
                     </li>
                 </ul>
             </div>

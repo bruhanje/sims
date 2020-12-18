@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block styles %}
+<link href="/grade_list.css" rel="stylesheet" />
+{% endblock %} {% block page_content %}
+<div class="paper">
+    <form class="grade-form" action="/action/cougra/query" method="post"></form>
+    <label>课程：</label>
+        <select name="cou_sn">
+            <option value="">高数(101)</option>
+            {% for item in courses %}
+            <option value="{{cou_sn}}">
+                {{item.cou_name}}({{item.cou_sn}})
+            </option>
+            {% endfor %}
+        </select> <input type="submit" value="查询成绩" />
+   
+    </form>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>课程</th>
+                <th>姓名</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.cou_name }}</td>
+                <td>{{ item.stu_name }}</td>
+                <td>{{ item.grade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

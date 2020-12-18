@@ -16,6 +16,10 @@ import serv.course_rest
 import serv.choose_action
 import serv.choose_views
 
+import serv.cougra_action
+import serv.cougra_views
+
+import serv.stugra_views
 app = web.Application()
 app.add_routes(web_routes)
 app.add_routes([web.static("/", home_path / "static")])
