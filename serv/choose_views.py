@@ -11,7 +11,7 @@ async def view_list_choose(request):
         students = list(db)
 
         db.execute("""
-        SELECT sn AS cou_sn, name as cou_name, time as cou_time FROM course ORDER BY name
+        SELECT sn AS cou_sn, name as cou_name FROM course ORDER BY name
         """)
         courses = list(db)
 
@@ -21,7 +21,7 @@ async def view_list_choose(request):
         SELECT g.stu_sn, g.cou_sn, 
             s.name as stu_name, 
             c.name as cou_name, 
-            g.time 
+            g.term 
         FROM student_course as g
             INNER JOIN student as s ON g.stu_sn = s.sn
             INNER JOIN course as c  ON g.cou_sn = c.sn
@@ -45,19 +45,19 @@ def view_choose_editor(request):
 
     with db_block() as db:
         db.execute("""
-        SELECT time FROM student_course
+        SELECT term FROM student_course
             WHERE stu_sn = %(stu_sn)s AND cou_sn = %(cou_sn)s;
         """, dict(stu_sn=stu_sn, cou_sn=cou_sn))
 
         record = db.fetch_first()
 
     if record is None:
-        return web.HTTPNotFound(text=f"no such time: stu_sn={stu_sn}, cou_sn={cou_sn}")
+        return web.HTTPNotFound(text=f"no such term: stu_sn={stu_sn}, cou_sn={cou_sn}")
 
     return render_html(request, "choose_edit.html",
                        stu_sn=stu_sn,
                        cou_sn=cou_sn,
-                       time=record.time)
+                       term=record.term)
 
 
 @web_routes.get("/choose/delete/{stu_sn}/{cou_sn}")
@@ -72,7 +72,7 @@ def choose_deletion_dialog(request):
         SELECT g.stu_sn, g.cou_sn,
             s.name as stu_name, 
             c.name as cou_name, 
-            g.time 
+            g.term
         FROM student_course as g
             INNER JOIN student as s ON g.stu_sn = s.sn
             INNER JOIN course as c  ON g.cou_sn = c.sn

@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS student_course;
 CREATE TABLE IF NOT EXISTS student_course (
     stu_sn INTEGER,     -- 学生序号
     cou_sn INTEGER,     -- 课程序号 
-    time   TEXT,        -- 课程时间
+    term   TEXT,        -- 课程学期
     PRIMARY KEY(stu_sn, cou_sn)
 );
 

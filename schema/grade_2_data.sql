@@ -20,5 +20,10 @@ INSERT INTO course_grade (stu_sn, cou_sn, grade)  VALUES
     (103, 101,  90),
     (101, 102,  89);
 
+INSERT INTO student_course(stu_sn,cou_sn,term) VALUES
+    (101,101,'第一学期'),
+    (102,102,'第二学期'),
+    (103,101,'第三学期'),
+    (101,102,'第四学期');
 
     

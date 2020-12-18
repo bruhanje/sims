@@ -23,11 +23,11 @@
             {% endfor %}
         </select>
 
-        <label>时间：</label>
+        <label>学期：</label>
         <input type="text" name="grade" />
         
 
-        <input type="submit" value="添加时间" />
+        <input type="submit" value="添加课程" />
     </form>
     <hr />
     <table class="table">
@@ -35,7 +35,7 @@
             <tr>
                 <th>姓名</th>
                 <th>课程</th>
-                <th>时间</th>
+                <th>学期</th>
                 <th>操作</th>
             </tr>
         </thead>
@@ -44,7 +44,7 @@
             <tr>
                 <td>{{ item.stu_name }}</td>
                 <td>{{ item.cou_name }}</td>
-                <td>{{ item.time }}</td>
+                <td>{{ item.term }}</td>
                 <td>
                     <div class="ctrlbar">
                         <div class="btn">
